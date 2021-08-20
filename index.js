@@ -3,7 +3,7 @@ const hoursEl = document.querySelector('#hours');
 const minutesEl = document.querySelector('#minutes');
 const secondsEl = document.querySelector('#seconds');
 
-let newDate = '2000-04-14';
+let newDate = '2000-08-24';
 
 function countdown() {
    const currentDate = new Date();
@@ -11,7 +11,10 @@ function countdown() {
 
    if (lookingDate < currentDate) {
       const date = newDate.slice(4);
-      lookingDate = new Date(currentDate.getFullYear() + 1 + date);
+      lookingDate = new Date(currentDate.getFullYear() + date);
+      if (lookingDate < currentDate) {
+         lookingDate = new Date((currentDate.getFullYear() + 1) + date);
+      }
    }
 
    const totalSeconds = (lookingDate - currentDate) / 1000;
